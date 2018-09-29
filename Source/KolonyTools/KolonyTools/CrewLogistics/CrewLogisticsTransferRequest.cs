@@ -5,6 +5,14 @@ using System.Linq;
 
 namespace KolonyTools
 {
+    public class CrewLogisticsTransferRequest : IConfigNode, IComparable<CrewLogisticsTransferRequest>
+    {
+    }
+}
+
+
+namespace KolonyTools
+{
     #region Helpers
     public enum DeliveryStatus { PreLaunch, Launched, Cancelled, Partial, Delivered, Failed, Returning }
     #endregion
@@ -358,7 +366,8 @@ namespace KolonyTools
             // One vessel on the ground, one in orbit
             else if ((sourceSituation == (sourceSituation & SURFACE) && targetSituation == Vessel.Situations.ORBITING)
                 || (sourceSituation == Vessel.Situations.ORBITING && targetSituation == (targetSituation & SURFACE))
-            ) {
+            )
+            {
                 // Determine the orbital period of the vessel in orbit
                 double period = sourceSituation == Vessel.Situations.ORBITING
                     ? LogisticsExtensions.OrbitalPeriod(mainBody, sourceProtoVessel.orbitSnapShot.semiMajorAxis)
@@ -417,7 +426,7 @@ namespace KolonyTools
                 return _fuelUnits;
 
             CelestialBody mainBody = Origin.mainBody;
-            
+
             var sourceProtoVessel = Origin.protoVessel;
             var targetProtoVessel = Destination.protoVessel;
 
@@ -453,7 +462,8 @@ namespace KolonyTools
                 // One vessel on the ground, one in orbit
                 if ((sourceSituation == (sourceSituation & SURFACE) && targetSituation == Vessel.Situations.ORBITING)
                     || (sourceSituation == Vessel.Situations.ORBITING && targetSituation == (targetSituation & SURFACE))
-                ) {
+                )
+                {
                     // Determine average orbital velocity
                     double velocity = sourceSituation == Vessel.Situations.ORBITING
                         ? Origin.AverageOrbitalVelocity()

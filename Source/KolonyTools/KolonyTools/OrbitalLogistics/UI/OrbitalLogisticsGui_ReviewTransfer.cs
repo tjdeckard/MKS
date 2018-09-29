@@ -1,17 +1,8 @@
 ﻿using System;
-
 using UnityEngine;
 
 namespace KolonyTools
 {
-    #region Helpers
-    public interface ITransferRequestViewParent
-    {
-        void AbortTransfer(OrbitalLogisticsTransferRequest transfer);
-        void ResumeTransfer(OrbitalLogisticsTransferRequest transfer);
-    }
-    #endregion
-
     /// <summary>
     /// Displays details of a transfer.
     /// </summary>

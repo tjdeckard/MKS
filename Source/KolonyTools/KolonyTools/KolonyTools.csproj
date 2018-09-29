@@ -62,21 +62,30 @@
     <Compile Include="AC\Kolonist.cs" />
     <Compile Include="AC\EditACPrefabsSpaceCentre.cs" />
     <Compile Include="AddScenarioModules.cs" />
+    <Compile Include="CrewLogistics\CrewLogisticsTransferRequest.cs" />
+    <Compile Include="CrewLogistics\ScenarioCrewLogistics.cs" />
+    <Compile Include="CrewLogistics\UI\CrewLogisticsGuiMain_Scenario.cs" />
     <Compile Include="Kolonization\KolonizationConfig.cs" />
     <Compile Include="Kolonization\KolonizationSetup.cs" />
     <Compile Include="Kolonization\KolonyInventory.cs" />
     <Compile Include="Kolonization\ManualLocalLogistics.cs" />
     <Compile Include="KolonyOptions\RescueKerbalFilter.cs" />
     <Compile Include="KolonyOptions\KolonyACOptions.cs" />
+    <Compile Include="LogisticsCommon\AbstractLogisticsGuiMain_Scenario.cs" />
+    <Compile Include="LogisticsCommon\AbstractLogisticsTransferRequest.cs" />
+    <Compile Include="LogisticsCommon\AbstractScenarioLogistics.cs" />
+    <Compile Include="LogisticsCommon\Interfaces\UI\ITransferInfoGuiRenderer.cs" />
+    <Compile Include="LogisticsCommon\Interfaces\ITransferController.cs" />
     <Compile Include="MksAutoRepair.cs" />
     <Compile Include="ModuleColonyRewards.cs" />
     <Compile Include="ModuleGroundPylon.cs" />
     <Compile Include="ModuleResourceLode.cs" />
     <Compile Include="ModuleResourceSurveyor.cs" />
-    <Compile Include="OrbitalLogistics\Helpers\UI\ComboBox.cs" />
-    <Compile Include="OrbitalLogistics\Helpers\UI\UIHelper.cs" />
-    <Compile Include="OrbitalLogistics\UI\OrbitalLogisticsGuiMain_Scenario.cs" />
+    <Compile Include="LogisticsCommon\Helpers\UI\ComboBox.cs" />
+    <Compile Include="LogisticsCommon\Helpers\UI\UIHelper.cs" />
     <Compile Include="OrbitalLogistics\Helpers\OrbitalLogisticsExtensions.cs" />
+    <Compile Include="OrbitalLogistics\UI\OrbitalLogisticsGuiMain_Scenario.cs" />
+    <Compile Include="LogisticsCommon\Helpers\LogisticsExtensions.cs" />
     <Compile Include="OrbitalLogistics\ScenarioOrbitalLogistics.cs" />
     <Compile Include="OrbitalLogistics\OrbitalLogisticsAllowedTransfers.cs" />
     <Compile Include="OrbitalLogistics\UI\OrbitalLogisticsGui_CreateTransfer.cs" />
@@ -104,7 +113,7 @@
     <Compile Include="SpaceAcademy.cs" />
     <None Include="StationManager\StationManager.old" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="OrbitalLogistics\Helpers\UI\Window.cs" />
+    <Compile Include="LogisticsCommon\Helpers\UI\Window.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

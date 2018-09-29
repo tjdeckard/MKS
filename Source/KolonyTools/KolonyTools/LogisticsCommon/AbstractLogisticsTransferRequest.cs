@@ -12,7 +12,7 @@ namespace KolonyTools
     /// <summary>
     /// A request to transfer resources from one <see cref="Vessel"/> to another.
     /// </summary>
-    public class OrbitalLogisticsTransferRequest : IConfigNode, IComparable<OrbitalLogisticsTransferRequest>
+    public abstract class AbstractLogisticsTransferRequest
     {
         #region Local static variables
         protected static Vessel.Situations SURFACE =
@@ -118,14 +118,14 @@ namespace KolonyTools
         /// <summary>
         /// Don't use this constructor. It's here to support instantiation via <see cref="ConfigNode"/>.CreateObjectFromConfig.
         /// </summary>
-        public OrbitalLogisticsTransferRequest() { }
+        public AbstractLogisticsTransferRequest() { }
 
         /// <summary>
         /// Use this constructor.
         /// </summary>
         /// <param name="origin">The <see cref="Vessel"/> that resources will be deducted from.</param>
         /// <param name="destination">The <see cref="Vessel"/> that resources will be added to.</param>
-        public OrbitalLogisticsTransferRequest(Vessel origin, Vessel destination)
+        public AbstractLogisticsTransferRequest(Vessel origin, Vessel destination)
         {
             Destination = destination;
             Origin = origin;
@@ -358,7 +358,8 @@ namespace KolonyTools
             // One vessel on the ground, one in orbit
             else if ((sourceSituation == (sourceSituation & SURFACE) && targetSituation == Vessel.Situations.ORBITING)
                 || (sourceSituation == Vessel.Situations.ORBITING && targetSituation == (targetSituation & SURFACE))
-            ) {
+            )
+            {
                 // Determine the orbital period of the vessel in orbit
                 double period = sourceSituation == Vessel.Situations.ORBITING
                     ? LogisticsExtensions.OrbitalPeriod(mainBody, sourceProtoVessel.orbitSnapShot.semiMajorAxis)
@@ -417,7 +418,7 @@ namespace KolonyTools
                 return _fuelUnits;
 
             CelestialBody mainBody = Origin.mainBody;
-            
+
             var sourceProtoVessel = Origin.protoVessel;
             var targetProtoVessel = Destination.protoVessel;
 
@@ -453,7 +454,8 @@ namespace KolonyTools
                 // One vessel on the ground, one in orbit
                 if ((sourceSituation == (sourceSituation & SURFACE) && targetSituation == Vessel.Situations.ORBITING)
                     || (sourceSituation == Vessel.Situations.ORBITING && targetSituation == (targetSituation & SURFACE))
-                ) {
+                )
+                {
                     // Determine average orbital velocity
                     double velocity = sourceSituation == Vessel.Situations.ORBITING
                         ? Origin.AverageOrbitalVelocity()
